@@ -59,10 +59,11 @@ public class test_swift_sdk {
 
     // Helper function to handle Locale language for macOS 13+
     private func getLocaleLanguage() -> String {
-        if #available(macOS 13, *) {
+        if #available(iOS 16, macOS 13, *) {
+            // iOS 16 or macOS 13 and later
             return Locale.current.language.languageCode?.identifier ?? "en"
         } else {
-            // Fallback for older macOS versions
+            // Fallback for earlier versions of iOS/macOS
             return Locale.current.languageCode ?? "en"
         }
     }
